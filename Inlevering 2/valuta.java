@@ -1,4 +1,4 @@
-// Emma Rasmusson 21042017
+// Emma Rasmusson 21042017 - In blueJ
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;

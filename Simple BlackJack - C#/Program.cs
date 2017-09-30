@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackJack
+namespace BlackJack1
 {
     class User
     {
@@ -12,7 +12,8 @@ namespace BlackJack
         public String name { get; set; }
     }
 
-    class Game {
+    class Game
+    {
 
         public void play(User player, User dealer)
         {
@@ -36,13 +37,14 @@ namespace BlackJack
                 while (player.points <= 21 && input == 'h')
                 {
                     Console.WriteLine(hit(player));
-                    if (player.points > 22) break;
+                    if (player.points >= 22) break;
 
                     input = Console.ReadKey().KeyChar;
                 }
 
-                if (player.points > 21) {
-                    Console.WriteLine("\nYou loose. Points are over 21, your points : " + player.points);
+                if (player.points > 21)
+                {
+                    Console.WriteLine("\nYou lose. Points are over 21, your points are " + player.points);
                 }
 
             }
@@ -60,7 +62,8 @@ namespace BlackJack
                     Console.WriteLine("\nDealer wins. (Your total was : " + player.points + " and dealer was : " + dealer.points + " )");
                 }
 
-                if (dealer.points < player.points && player.points <=21) {
+                if (dealer.points < player.points && player.points <= 21)
+                {
                     Console.WriteLine("\nYou win. (Your total was : " + player.points + " and dealer was : " + dealer.points + " )");
                 }
             }
@@ -71,11 +74,12 @@ namespace BlackJack
         {
             // Creates a random number and assigns this value to a card.
             var randomNumberGenerator = new Random();
-            int cardValue = randomNumberGenerator.Next(13, 15);
+            int cardValue = randomNumberGenerator.Next(1, 15);
             Card cad = (Card)cardValue;
 
             //Counts points of the card.
-            switch (cardValue) {
+            switch (cardValue)
+            {
                 case 1:
                     user.points += 1;
                     break;
@@ -118,7 +122,7 @@ namespace BlackJack
                 case 14:
                     user.points += 10;
                     if (user.points > 21)
-                    {user.points -= 9;}
+                    { user.points -= 9; }
                     break;
             }
 
@@ -128,7 +132,8 @@ namespace BlackJack
 
     }
 
-   public enum Card{
+    public enum Card
+    {
         One = 1,
         Two = 2,
         Three = 3,
@@ -158,7 +163,8 @@ namespace BlackJack
             Console.WriteLine("\nWould you like to play again? Yes or no. y / n");
             char input = Console.ReadKey().KeyChar;
 
-            while (input == 'y') {
+            while (input == 'y')
+            {
                 Game g2 = new Game();
                 User player2 = new User();
                 User dealer2 = new User();
